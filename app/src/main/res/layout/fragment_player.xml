@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_player"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundstarfree"
+    tools:context=".fragment.playerFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarId"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:navigationIcon="?attr/homeAsUpIndicator">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/rubik_medium"
+            android:text="Title"
+            android:textColor="@color/white"
+            android:textSize="25dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/l1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/player_topview_option"
+        android:layout_below="@id/toolbarId"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_play"
+            android:layout_width="@dimen/player_topview_play_icon"
+            android:layout_height="@dimen/player_topview_play_icon"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/new_play" />
+
+
+<!--        <ToggleButton-->
+<!--            android:id="@+id/btn_favourite"-->
+<!--            android:layout_width="@dimen/player_topview_play_other_icon"-->
+<!--            android:layout_height="@dimen/player_topview_play_other_icon"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:background="@drawable/fav_button"-->
+<!--            android:textOff=" "-->
+<!--            android:textOn=" " />-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_toLeftOf="@+id/btn_favourite"-->
+<!--            android:layout_toRightOf="@+id/btn_play"-->
+<!--            android:gravity="center">-->
+
+<!--            <ImageButton-->
+<!--                android:id="@+id/btn_query"-->
+<!--                android:layout_width="@dimen/player_topview_play_other_icon"-->
+<!--                android:layout_height="@dimen/player_topview_play_other_icon"-->
+<!--                android:background="@drawable/transbutton_bg"-->
+<!--                android:src="@drawable/ic_info" />-->
+<!--        </LinearLayout>-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_toLeftOf="@+id/btn_download_delete"-->
+<!--            android:layout_toRightOf="@+id/btn_favourite"-->
+<!--            android:gravity="center">-->
+
+<!--            <ImageButton-->
+<!--                android:id="@+id/btn_share"-->
+<!--                android:layout_width="@dimen/player_topview_play_other_icon"-->
+<!--                android:layout_height="@dimen/player_topview_play_other_icon"-->
+<!--                android:background="@drawable/transbutton_bg"-->
+<!--                android:src="@drawable/ic_share" />-->
+<!--        </LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@+id/btn_download_delete"
+                    android:layout_toEndOf="@+id/btn_play">
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5">
+
+                        <ImageButton
+                            android:id="@+id/btn_query"
+                            android:layout_width="@dimen/player_topview_play_other_icon"
+                            android:layout_height="@dimen/player_topview_play_other_icon"
+                            android:background="@drawable/transbutton_bg"
+                            android:src="@drawable/ic_info" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".5">
+
+                        <ToggleButton
+                            android:id="@+id/btn_favourite"
+                            android:layout_width="@dimen/player_topview_play_other_icon"
+                            android:layout_height="@dimen/player_topview_play_other_icon"
+                            android:background="@drawable/fav_button"
+                            android:textOff=" "
+                            android:textOn=" " />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.5">
+
+                        <ImageButton
+                            android:background="@drawable/transbutton_bg"
+                            android:id="@+id/btn_share"
+                            android:layout_width="@dimen/player_topview_play_other_icon"
+                            android:layout_height="@dimen/player_topview_play_other_icon"
+                            android:src="@drawable/ic_baseline_share_24" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btn_download_delete"
+            android:layout_width="@dimen/player_topview_play_other_icon"
+            android:layout_height="@dimen/player_topview_play_other_icon"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/download_image" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/l1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/transbutton_bg"
+            android:fontFamily="@font/rubik_regular"
+            android:gravity="left"
+            android:text="00:00"
+            android:textColor="@color/white"
+            android:textSize="@dimen/player_timer_text_size" />
+
+        <TextView
+            android:id="@+id/txt_duration_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/transbutton_bg"
+            android:fontFamily="@font/rubik_regular"
+            android:gravity="right"
+            android:text="00:00"
+            android:textColor="@color/white"
+            android:textSize="@dimen/player_timer_text_size" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/l3"
+        android:layout_below="@+id/l2">
+
+        <RelativeLayout
+            android:id="@+id/layoutCircel"
+            android:layout_width="@dimen/payer_circel_pedding"
+            android:layout_height="@dimen/payer_circel_pedding"
+            android:layout_centerInParent="true">
+
+            <me.tankery.lib.circularseekbar.CircularSeekBar
+                android:id="@+id/seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="@dimen/seekbar_margin"
+                android:layout_marginRight="@dimen/seekbar_margin"
+                app:cs_circle_progress_color="@color/white"
+                app:cs_circle_stroke_width="8dp"
+                app:cs_circle_style="round"
+                app:cs_negative_enabled="true"
+                app:cs_pointer_color="@color/white"
+                app:cs_pointer_halo_width="3dp"
+                app:cs_pointer_stroke_width="24dp"></me.tankery.lib.circularseekbar.CircularSeekBar>
+
+
+            <ImageView
+                android:id="@+id/img_play_logo"
+                android:layout_width="@dimen/cneter_image_size"
+                android:layout_height="@dimen/cneter_image_size"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_margin="80dp"
+                android:src="@drawable/logo_image" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/l3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/seekbar2"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spin_time"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/spin_bg"
+            android:fontFamily="@font/rubik_regular"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/player_timer_text_size" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/spin_style"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/spin_bg"
+            android:fontFamily="@font/rubik_regular"
+            android:gravity="right"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/player_timer_text_size" />
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekbar2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="20dp"
+        android:progressTint="@color/white"
+        android:thumbTint="@color/white" />
+
+</RelativeLayout>

@@ -1,0 +1,86 @@
+plugins {
+    alias(libs.plugins.android.application)
+}
+
+android {
+    namespace 'eu.coach_yourself.app'
+    compileSdk 36
+    defaultConfig {
+        applicationId "eu.coach_yourself.app"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+        preDexLibraries = false
+    }
+}
+
+dependencies {
+
+    implementation libs.appcompat
+    implementation libs.material
+    implementation libs.activity
+    implementation libs.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.ext.junit
+    androidTestImplementation libs.espresso.core
+
+    implementation 'androidx.fragment:fragment:1.8.9'
+    implementation 'androidx.vectordrawable:vectordrawable:1.2.0'
+    implementation 'androidx.navigation:navigation-fragment:2.9.5'
+    implementation 'androidx.navigation:navigation-ui:2.9.5'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.9.4'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "androidx.recyclerview:recyclerview-selection:1.2.0"
+    implementation "androidx.cardview:cardview:1.0.0"
+    implementation 'com.android.support:multidex:1.0.3'  //with support libraries
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'androidx.viewpager:viewpager:1.1.0'
+    implementation 'androidx.viewpager2:viewpager2:1.1.0'
+    implementation 'com.bartoszlipinski.flippablestackview:library:1.2.1'
+    implementation 'com.github.yuyakaido:cardstackview:2.3.4'
+    implementation 'androidx.preference:preference:1.2.1'
+    implementation 'com.github.ceryle:SegmentedButton:v2.0.2'
+    implementation files('libs/activeandroidrx-3.1.0.jar')
+    implementation files('libs/rxjava-1.0.14.jar')
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'me.tankery.lib:circularSeekBar:1.4.2'
+    implementation 'com.github.AppIntro:AppIntro:6.0.0'
+    implementation 'com.github.douglasjunior:android-simple-tooltip:1.0.0-rc.0'
+    implementation 'com.github.vihtarb:tooltip:0.2.0'
+    implementation 'com.anjlab.android.iab.v3:library:2.0.3'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'androidx.work:work-runtime-ktx:2.10.5'
+    implementation 'com.nabinbhandari.android:permissions:4.0.0'
+    implementation 'com.jakewharton:disklrucache:2.0.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.google.android.material:material:1.13.0'
+    implementation 'com.google.android.exoplayer:exoplayer:2.19.1'
+//    implementation 'com.android.support:support-media-compat:28.0.0'
+    implementation 'org.greenrobot:eventbus:3.3.1'
+    implementation 'androidx.core:core:1.17.0'
+    implementation 'androidx.media:media:1.7.1'
+
+
+}

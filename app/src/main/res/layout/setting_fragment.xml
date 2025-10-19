@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_setting"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:text="@string/title_setting"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"></TextView>
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/leaf3"></ImageView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/layoutbtn_subscribe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:fontFamily="@font/rubik_medium"
+                        android:text="@string/Status"
+                        android:textColor="@color/Green"
+                        android:textSize="20dp"></TextView>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/lightgray" />
+
+                    <Button
+                        android:id="@+id/btn_subscribe"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/gray_border_bg"
+                        android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                        android:drawablePadding="10dp"
+                        android:fontFamily="@font/rubik_regular"
+                        android:gravity="left"
+                        android:paddingStart="20dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="12dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/Subscribe"
+                        android:textAllCaps="false"
+                        android:textSize="16dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@color/lightgray" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:text="@string/Options"
+                    android:textColor="@color/Green"
+                    android:textSize="20dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/lightgray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="@string/Rating"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+
+                    <Switch
+                        android:id="@+id/seitch_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/lightgray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="@string/language"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+
+                    <co.ceryle.segmentedbutton.SegmentedButtonGroup
+                        android:id="@+id/dynamic_drawable_group"
+                        android:layout_width="80dp"
+                        android:layout_height="30dp"
+                        android:elevation="2dp"
+                        app:sbg_animateSelector="fastOutSlowIn"
+                        app:sbg_animateSelectorDuration="1000"
+                        app:sbg_backgroundColor="@color/Green"
+                        app:sbg_position="0"
+                        app:sbg_radius="7dp"
+                        app:sbg_rippleColor="@color/white"
+                        app:sbg_selectorColor="@color/white">
+
+                        <co.ceryle.segmentedbutton.SegmentedButton
+                            android:id="@+id/left_button"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="1"
+                            app:sb_drawableGravity="right"
+                            app:sb_drawableTint="@color/white"
+                            app:sb_drawableTint_onSelection="@color/black"
+                            app:sb_text="De"
+                            app:sb_textColor="@color/black" />
+
+                        <co.ceryle.segmentedbutton.SegmentedButton
+                            android:id="@+id/right_button"
+                            android:layout_width="0dp"
+                            android:layout_height="30dp"
+                            android:layout_weight="1"
+                            app:sb_drawableGravity="right"
+                            app:sb_drawableTint="@color/white"
+                            app:sb_drawableTint_onSelection="@color/black"
+                            app:sb_text="En"
+                            app:sb_textColor="@color/black" />
+                    </co.ceryle.segmentedbutton.SegmentedButtonGroup>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/lightgray" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="@string/tip"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+
+                    <Switch
+                        android:id="@+id/switch_tips"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="end"
+                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/lightgray" />
+
+                <Button
+                    android:id="@+id/btn_website"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/transbutton_bg"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
+                    android:fontFamily="@font/rubik_regular"
+                    android:gravity="left"
+                    android:text="@string/Website"
+                    android:textAllCaps="false"
+                    android:textSize="17dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/lightgray" />
+
+                <Button
+                    android:id="@+id/btn_policy"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/transbutton_bg"
+                    android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                    android:fontFamily="@font/rubik_regular"
+                    android:gravity="left"
+                    android:text="@string/Policy"
+                    android:textAllCaps="false"
+                    android:textSize="17dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/lightgray" />
+
+                <Button
+                    android:id="@+id/btn_term"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/transbutton_bg"
+                    android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
+                    android:fontFamily="@font/rubik_regular"
+                    android:gravity="left"
+                    android:text="@string/Term"
+                    android:textAllCaps="false"
+                    android:textSize="17dp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@color/lightgray" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

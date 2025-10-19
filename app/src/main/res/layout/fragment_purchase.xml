@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/purchase_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundstarfree"
+    android:clickable="true"
+    tools:context=".fragment.purchase">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="400dp"
+        android:background="@color/white"></RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:navigationIcon="?attr/homeAsUpIndicator">
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="?android:attr/actionBarSize"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:gravity="center"
+                    android:text="@string/purchase_name"
+                    android:textColor="@color/white"
+                    android:textSize="25dp" />
+            </androidx.appcompat.widget.Toolbar>
+
+
+            <LinearLayout
+                android:id="@+id/details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/toolbarId"
+                android:layout_marginTop="50dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/rubik_medium"
+                    android:text="@string/purchase_title"
+                    android:textColor="@color/Green_shade2"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:id="@+id/txt_detail1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/purchase_detail"
+                    android:textColor="@color/black"
+                    android:textSize="18dp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/textDot3333"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/gray_fill_button_bg2" />
+
+                    <TextView
+                        android:id="@+id/txt_detail"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_toRightOf="@+id/textDot3333"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="@string/purchase_detail_01"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_marginTop="6dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/textDot"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/gray_fill_button_bg2" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_toRightOf="@+id/textDot"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="@string/purchase_detail_02"
+                        android:textColor="@color/black"
+                        android:textSize="14dp"
+                        android:visibility="visible" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/purchase_l1"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_purchase_month"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/gray_fill_button_bg"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="@string/purchase_month"
+                        android:textAllCaps="false"
+                        android:textColor="@color/black"
+                        android:textSize="18dp" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_purchase_year"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/green_fill_button_bg"
+                        android:fontFamily="@font/rubik_regular"
+                        android:text="@string/purchase_year"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/purchase_detail2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/purchase_l1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="1dp"
+                    android:fontFamily="@font/rubik_regular"
+                    android:text="@string/purchase_detail2"
+                    android:textColor="@color/black"
+                    android:textSize="14dp" />
+
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/purchas_img"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbarId"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:minHeight="100dp"
+                android:src="@drawable/purchase_img" />
+
+
+            <LinearLayout
+                android:id="@+id/purchase_l2"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/details"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_bottom1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/transbutton_bg"
+                    android:fontFamily="@font/rubik_medium"
+                    android:text="@string/bottom1"
+                    android:textColor="@color/Green_shade2"
+                    android:textSize="12dp" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="20dp"
+                    android:background="@color/gray" />
+
+                <Button
+                    android:id="@+id/btn_bottom2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/transbutton_bg"
+                    android:fontFamily="@font/rubik_medium"
+                    android:text="@string/bottom2"
+                    android:textColor="@color/Green_shade2"
+                    android:textSize="12dp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
+
+
+

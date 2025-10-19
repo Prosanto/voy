@@ -1,0 +1,146 @@
+<resources>
+    <string name="app_name">VOY</string>
+
+    <!-- inital screen-->
+    <string name="tip1_title">Deine Abkürzung zu positiven Gefühlen.</string>
+    <string name="tip1_subtitle">Statt in der Außenwelt nach guten Gefühlen zu suchen, findest du sie in Deinem Inneren.</string>
+    <string name="tip2_title">Stelle Dir zum Abkürzen die „Zauberfrage“:</string>
+    <string name="tip2_subtitle">Welches Gefühl brauche ich gerade, damit es mir besser geht?</string>
+    <string name="tip3_title">Erlebe mit VOY die besten Gefühle.</string>
+    <string name="tip3_subtitle">Stärke Deine Gefühle durch Selbst-Coaching, Hypnose und Meditation.</string>
+
+
+    <!-- Navigation Title German Language  -->
+    <string name="title_home">Home</string>
+    <string name="title_setting">Einstellungen</string>
+    <string name="title_graph">Erfolge</string>
+    <string name="title_motive">Motivator</string>
+    <string name="title_fav">Favoriten</string>
+
+    <!--    Dashboard-->
+    <string name="tool_tips_card">Wähle auf den Karten Dein passendes Gefühl aus.\nRote Gefühle stärken Deinen Körper, blaue Deinen Verstand und grüne Dein Herz.</string>
+    <string name="tool_tips_motivator">Motiviere Dich mit Deinen eigenen Kraft-Worten. Erinnere Dich regelmäßig an Dein Gefühlsmanagement.</string>
+    <string name="tool_tips_char">Verfolge Deine Entwicklung.</string>
+    <string name="firstpage_title">Welches Gefühl brauchst du gerade, damit es dir besser geht?</string>
+    <string name="firstpage_btn">Alle Gefühle mit dem VOY-Abo</string>
+
+
+    <!-- Player Screen German Language  -->
+    <string name="drop1">Stille</string>
+    <string name="drop2">Meer</string>
+    <string name="drop3">Wald</string>
+    <string name="drop4">Regen</string>
+    <string name="drop5">Musik</string>
+    <string-array name="Spin1">
+        <item>@string/drop1</item>
+        <item>@string/drop2</item>
+        <item>@string/drop3</item>
+        <item>@string/drop4</item>
+        <item>@string/drop5</item>
+    </string-array>
+    <string name="rating_text">Schätze Deine Stimmung ein.</string>
+    <string name="rating_text_end">Schätze Deine Stimmung ein.</string>
+    <string name="MusicDropdown">Such die passende Länge aus.</string>
+    <string name="AudioDropdown">Wähle einen Hintergrund-Sound.</string>
+    <string name="bottomslider">Mische das Verhältnis mit der Stimme.</string>
+    <string name="iButton">Mehr Inspiration bekommst Du hier.</string>
+    <string name="share_text">Hi, ich habe gerade mit VOY die besten Gefühle erlebt. Probier es doch mal aus.</string>
+
+    <string name="downloadtext">Durch Downloads kannst Du Deine Favoriten offline nutzen.</string>
+
+    <!-- Setting Screen German Language  -->
+    <string name="Status">Status</string>
+    <string name="Subscribe">Mein VOY-Abo</string>
+    <string name="Rating">Skala von 1-10 nutzen</string>
+    <string name="language">Sprache</string>
+    <string name="tip">Tipps zum Start anzeigen</string>
+    <string name="Website">VOY Webseite</string>
+    <string name="Options">Optionen</string>
+    <string name="Policy">Datenschutz</string>
+    <string name="Term">Impressum &amp; AGB	</string>
+
+
+    <!--Favourite Screen-->
+    <string name="fav_detail">Füge Deine Favoriten hinzu</string>
+    <string name="favtitle">Favoriten</string>
+
+    <!-- Motivator Screen German Language  -->
+    <string name="Motivatoreinrichten">Motivator einrichten</string>
+    <string name="motivator_detail">Motiviere Dich, Zeit für Dich selbst zu nehmen.\n\nErstelle Dir Erinnerungen in Deinen Kalender. Durch kraftvolle Worte und einem schönen Sound nimmst Du Dir gerne Zeit für Dich.</string>
+    <string name="Su">So</string>
+    <string name="Mo">Mo</string>
+    <string name="Tu">Di</string>
+    <string name="We">Mi</string>
+    <string name="Th">Do</string>
+    <string name="Fr">Fr</string>
+    <string name="Sa">Sa</string>
+    <string name="addmotivator">Motivator einrichten</string>
+    <string name="remind_title1">Ich möchte motiviert werden mit...</string>
+    <string name="remind_title2">... den kraftvollen Worten</string>
+    <string name="remind_title3">In der Wiederholung liegt die Kraft.</string>
+    <string name="Save">Speichern</string>
+    <string name="Delete">Löschen</string>
+    <string name="notificaion_save">Motivator aktiv</string>
+
+
+    <!-- Chart screen-->
+    <string name="Chart">Erfolge</string>
+    <string name="firsttitle">Beobachte Deine Entwicklung</string>
+    <string name="subtitle">Mit der Rating Skala von 1-10 kannst Du sehen, wie schnell Du Deine Gefühl veränderst.</string>
+    <string name="secondtitle">Bring Deine Gefühle in Balance</string>
+    <string name="sendsubtitle"> Mit den roten Übungen stärkst Du Deinen Körper, mit blauen Deinen Verstand und mit den grünen Dein Herz.</string>
+    <string name="nodata">Mach eine Übung für Deine Balance.</string>
+    <string name="Week">Woche</string>
+    <string-array name="monthly">
+        <item>Jan</item>
+        <item>Feb</item>
+        <item>Mrz</item>
+        <item>Apr</item>
+        <item>Mai</item>
+        <item>Jun</item>
+        <item>Jul</item>
+        <item>Aug</item>
+        <item>Sept</item>
+        <item>Okt</item>
+        <item>Nov</item>
+        <item>Dez</item>
+
+    </string-array>
+    <string name="before">Vorher</string>
+    <string name="after">Nachher</string>
+
+    <!--Purchase Screen-->
+    <string name="purchase_name">Mein VOY-Abo</string>
+    <string name="purchase_title">VOY - Feelings als Abo</string>
+    <string name="purchase_detail">Wähle Dein Abo und teste VOY eine Woche kostenfrei.</string>
+    <string name="purchase_detail_01">Nutze die längeren Versionen, damit Hypnose, Coaching und Meditation tiefer in Dir wirken können.</string>
+    <string name="purchase_detail_02">Erlebe auf Knopfdruck eine Abkürzung zu den besten Gefühlen.</string>
+
+
+    <string name="purchase_month">monatlich \n 0,99 &#8364;</string>
+    <string name="purchase_year">jährlich \n 9,99 &#8364;\n  spare 33 %</string>
+    <string name="purchase_detail2">VOY-Abo ist ein automatisch weiterlaufendes Abo, solange du nicht vor Ablauf des aktuellen Abo-Zeitraums kündigst. Sobald du den Kauf bestätigt hast, erfolgt die Bezahlung über deinen  google play Account. Kosten fallen zum jeweiligen Verlängerungsdatum an. Du kannst das Abo jederzeit kündigen.</string>
+    <string name="bottom1">AGB</string>
+    <string name="bottom2">Datenschutz</string>
+
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+
+    <string name="app_intro_skip_button"> </string>
+    <string name="app_intro_next_button"> </string>
+    <string name="app_intro_back_button"> </string>
+    <string name="app_intro_done_button">Done</string>
+    <string name="app_download_information">Download Fehler</string>
+    <string name="app_download_information_2">Zum Herunterladen deinstallieren Sie bitte die App, starten Sie Ihr Telefon neu und versuchen Sie es erneut</string>
+
+
+</resources>

@@ -1,0 +1,39 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <dimen name="seekbar_margin">4dp</dimen>
+    <dimen name="seekbar_holo_width">4dp</dimen>
+    <dimen name="seekbar_size_large">200dp</dimen>
+    <dimen name="seekbar_size_small">120dp</dimen>
+    <dimen name="seekbar_size_small_ellipse">120dp</dimen>
+
+    <dimen name="home_top_icon">50dp</dimen>
+    <dimen name="home_top_text">20sp</dimen>
+    <dimen name="home_botom_text">16sp</dimen>
+    <dimen name="home_top_icon_margin">80dp</dimen>
+    <dimen name="home_top_icon_margin_bttom">100dp</dimen>
+    <dimen name="home_card_hegiht">300dp</dimen>
+
+    <dimen name="home_botom_hieght">60dp</dimen>
+    <dimen name="home_card_icon_hight">80dp</dimen>
+    <dimen name="home_card_icon_hight_padding">40dp</dimen>
+
+    <dimen name="home_card_text_top">20sp</dimen>
+    <dimen name="home_card_text_bottom">16sp</dimen>
+    <dimen name="home_card_text_right">80dp</dimen>
+
+    <dimen name="player_topview_option">100dp</dimen>
+    <dimen name="player_topview_play_icon">60dp</dimen>
+    <dimen name="player_topview_play_other_icon">24dp</dimen>
+    <dimen name="player_topview_play_other_icon_padding">40dp</dimen>
+    <dimen name="player_timer_text_size">20sp</dimen>
+    <dimen name="cneter_image_size">100dp</dimen>
+    <dimen name="payer_circel_pedding">300dp</dimen>
+
+    <dimen name="motive_hight">35dp</dimen>
+    <dimen name="motive_text_size">12sp</dimen>
+
+</resources>
