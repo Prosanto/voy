@@ -5,6 +5,7 @@
     android:id="@+id/fragment_fav"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundstarfree"
     tools:context=".fragment.FavFragment">
 
     <androidx.appcompat.widget.Toolbar

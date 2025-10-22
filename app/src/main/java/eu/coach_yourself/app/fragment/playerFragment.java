@@ -52,6 +52,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.reflect.TypeToken;
+import com.nabinbhandari.android.permissions.PermissionHandler;
+import com.nabinbhandari.android.permissions.Permissions;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
@@ -63,6 +65,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import eu.coach_yourself.app.DownloadedActivity;
+import eu.coach_yourself.app.MyIntro;
 import eu.coach_yourself.app.R;
 import eu.coach_yourself.app.database.DatabaseQueryHelper;
 import eu.coach_yourself.app.database.FavouriteSongs;
@@ -222,7 +225,29 @@ public class playerFragment extends BaseFragment {
         btn_download_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ValidationPermsion();
+
+                if (Build.VERSION.SDK_INT >= 33) {
+                    String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+                    Permissions.check(getActivity()/*context*/, permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
+                        @Override
+                        public void onGranted() {
+                            CheckEventStart();
+                        }
+                    });
+
+                } else {
+
+                    String[] permissions = {Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.READ_MEDIA_AUDIO};
+                    Permissions.check(getActivity(), permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
+                        @Override
+                        public void onGranted() {
+                            CheckEventStart();
+                        }
+
+                    });
+                }
+
+               // ValidationPermsion();
 
             }
         });
@@ -654,7 +679,7 @@ public class playerFragment extends BaseFragment {
     private void getSpinArray() {
 
         String url_media = AllUrls.getcontentURL(mModelFile.getId());
-        Log.e("url_media",url_media);
+        Log.e("url_media", url_media);
         final ProgressDialog progressDialogmedia = new ProgressDialog(getContext());
         progressDialogmedia.setMessage("Loading...");
         progressDialogmedia.show();
@@ -1027,6 +1052,8 @@ public class playerFragment extends BaseFragment {
     final private int REQUEST_CODE_ASK_PERMISSIONS_AGENT = 100;
 
     public void ValidationPermsion() {
+
+
         List<String> permissions = new ArrayList<String>();
         if (Build.VERSION.SDK_INT > 22) {
             String cameraPermission = Manifest.permission.CAMERA;
