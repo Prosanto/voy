@@ -48,4 +48,11 @@
     </style>
 
 
+    <style name="CustomTimePickerStyle" parent="ThemeOverlay.MaterialComponents.TimePicker">
+        <item name="android:textColorAlertDialogListItem">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+
+    </style>
+
+
 </resources>

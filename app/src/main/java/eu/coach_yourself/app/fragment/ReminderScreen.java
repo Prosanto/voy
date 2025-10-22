@@ -21,6 +21,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -43,7 +44,8 @@ import eu.coach_yourself.app.utils.PersistentUser;
 public class ReminderScreen extends Fragment {
     TextView btn_d1, btn_d2, btn_d3, btn_d4, btn_d5, btn_d6, btn_d7;
 
-    Button btn_save, btn_delete;
+    Button btn_delete;
+    AppCompatButton btn_save;
     EditText edit_remind;
     public TimePicker timePicker;
     DBHelper dbHelper;
@@ -90,7 +92,7 @@ public class ReminderScreen extends Fragment {
         btn_d5 = (TextView) view.findViewById(R.id.btn_d5);
         btn_d6 = (TextView) view.findViewById(R.id.btn_d6);
         btn_d7 = (TextView) view.findViewById(R.id.btn_d7);
-        btn_save = (Button) view.findViewById(R.id.btn_save);
+        btn_save = (AppCompatButton) view.findViewById(R.id.btn_save);
         btn_delete = (Button) view.findViewById(R.id.btn_delete);
 
         timePicker.setIs24HourView(true);

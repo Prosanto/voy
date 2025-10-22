@@ -804,6 +804,7 @@ public class playerFragment extends BaseFragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             boolean completeSongs = intent.getBooleanExtra("completeSongs", false);
+            Log.e("completeSongs","are"+completeSongs);
             if (!completeSongs) {
                 Playlist m = MyMediaPlayerService.commonPlaylistcontent;
                 if (m.getCategory_id().equalsIgnoreCase(mModelFile.getId())) {

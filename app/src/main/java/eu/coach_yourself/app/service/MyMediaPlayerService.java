@@ -18,6 +18,8 @@ import android.support.v4.media.session.MediaControllerCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
+import android.util.Log;
+
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.google.android.exoplayer2.MediaItem;
@@ -358,9 +360,8 @@ public class MyMediaPlayerService extends Service {
 
                 mediaPlayer.prepare(mediaSource, true, false);
                 mediaPlayer.setPlayWhenReady(true);
-                mediaPlayer.addListener(new Player.Listener() {
-                });
-                mediaPlayer.addAnalyticsListener(componentListener);
+                ///mediaPlayer.addListener(new Player.Listener() {});
+                mediaPlayer.addListener(componentListener);
                 PlaybackParameters playbackParameters = new PlaybackParameters(1.0f, 1.0f);
                 mediaPlayer.setPlaybackParameters(playbackParameters);
             } else {
@@ -628,11 +629,12 @@ public class MyMediaPlayerService extends Service {
 
     }
 
-    public class ComponentListener implements Player.Listener, AnalyticsListener {
+    public class ComponentListener implements Player.Listener {
         @Override
         public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
             switch (playbackState) {
                 case Player.STATE_ENDED:
+                    Log.e("completeSongs.....","are"+completeSongs);
                     completeSongs = true;
                     Intent intent1 = new Intent("my-event");
                     intent1.putExtra("isplay", isPlaying);
@@ -663,6 +665,7 @@ public class MyMediaPlayerService extends Service {
                 case Player.STATE_IDLE:
 
                     break;
+
 
             }
         }

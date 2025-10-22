@@ -81,18 +81,11 @@ public class MotivatorFragment extends BaseFragment {
                     });
 
                 } else {
-                    String[] permissions = {Manifest.permission.SCHEDULE_EXACT_ALARM};
-                    Permissions.check(getActivity()/*context*/, permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
-                        @Override
-                        public void onGranted() {
-                            Fragment fragment = new ReminderScreen();
-                            FragmentManager fragmentManager = getChildFragmentManager();
-                            fragmentManager.beginTransaction().add(R.id.Motivator_fragment, fragment)
-                                    .addToBackStack("my_fragment_remnder")
-                                    .commit();
-                        }
-
-                    });
+                    Fragment fragment = new ReminderScreen();
+                    FragmentManager fragmentManager = getChildFragmentManager();
+                    fragmentManager.beginTransaction().add(R.id.Motivator_fragment, fragment)
+                            .addToBackStack("my_fragment_remnder")
+                            .commit();
                 }
 //
 //                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

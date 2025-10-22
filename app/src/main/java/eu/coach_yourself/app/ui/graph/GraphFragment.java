@@ -79,12 +79,12 @@ public class GraphFragment extends Fragment {
         spin_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#0084ff"));
                 if (flagCategory) {
                     showChatLine();
                     flagCategory = false;
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
@@ -92,12 +92,13 @@ public class GraphFragment extends Fragment {
         spin_time.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#0084ff"));
                 if (flagMonth) {
                     showChatLine();
                     flagMonth = false;
+
                 }
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
@@ -128,6 +129,7 @@ public class GraphFragment extends Fragment {
         spin_category.setAdapter(dataAdapter2);
 
         spin_time.setSelection((Integer.parseInt(nune) - 1));
+        //spin_time.setSelection(index);
 
 
         chart = (LineChart) root.findViewById(R.id.chart);
@@ -329,7 +331,7 @@ public class GraphFragment extends Fragment {
 
                 int valueFirsrt = (int) mPieChartData.getCategory_percentage();
                 int value2nd = (int) mPieChartData.getCategory_percentage();
-                
+
                 entries.add(new PieEntry(valueFirsrt, "" + value2nd + "%"));
                 colors.add(Color.parseColor(mPieChartData.getCategory_color()));
             }
