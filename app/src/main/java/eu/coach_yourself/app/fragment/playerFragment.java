@@ -227,16 +227,6 @@ public class playerFragment extends BaseFragment {
             public void onClick(View v) {
 
                 if (Build.VERSION.SDK_INT >= 33) {
-                    String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
-                    Permissions.check(getActivity()/*context*/, permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
-                        @Override
-                        public void onGranted() {
-                            CheckEventStart();
-                        }
-                    });
-
-                } else {
-
                     String[] permissions = {Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.READ_MEDIA_AUDIO};
                     Permissions.check(getActivity(), permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
                         @Override
@@ -244,6 +234,16 @@ public class playerFragment extends BaseFragment {
                             CheckEventStart();
                         }
 
+                    });
+
+                } else {
+
+                    String[] permissions = { Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+                    Permissions.check(getActivity()/*context*/, permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
+                        @Override
+                        public void onGranted() {
+                            CheckEventStart();
+                        }
                     });
                 }
 
