@@ -76,34 +76,16 @@ public class GraphFragment extends Fragment {
 //        draw_02 = (ImageView) root.findViewById(R.id.draw_02);
 //
 
-        spin_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#0084ff"));
-                if (flagCategory) {
-                    showChatLine();
-                    flagCategory = false;
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-        spin_time.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#0084ff"));
-                if (flagMonth) {
-                    showChatLine();
-                    flagMonth = false;
 
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
+        getGroupby.clear();
+        getGroupby.addAll(DatabaseQueryHelper.getGroupby());
+        for (RatingCategorySongs mRatingCategorySongs : getGroupby) {
+            spinerArray.add(mRatingCategorySongs.getCategoryname());
+        }
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, spinerArray);
+        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_category.setAdapter(dataAdapter2);
 
-            }
-        });
         spin_category.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -119,17 +101,44 @@ public class GraphFragment extends Fragment {
             }
         });
 
-        getGroupby.clear();
-        getGroupby.addAll(DatabaseQueryHelper.getGroupby());
-        for (RatingCategorySongs mRatingCategorySongs : getGroupby) {
-            spinerArray.add(mRatingCategorySongs.getCategoryname());
-        }
-        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, spinerArray);
-        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin_category.setAdapter(dataAdapter2);
 
+        spin_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (flagCategory) {
+                    showChatLine();
+                    flagCategory = false;
+                }
+                TextView selectedText = (TextView) view;
+                if (selectedText != null) {
+                    selectedText.setTextColor(Color.parseColor("#0084ff"));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+        spin_time.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+              //  ((TextView) parent.getChildAt(0)).setTextColor(Color.parseColor("#0084ff"));
+                if (flagMonth) {
+                    showChatLine();
+                    flagMonth = false;
+                }
+                TextView selectedText = (TextView) view;
+                if (selectedText != null) {
+                    selectedText.setTextColor(Color.parseColor("#0084ff"));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
         spin_time.setSelection((Integer.parseInt(nune) - 1));
-        //spin_time.setSelection(index);
 
 
         chart = (LineChart) root.findViewById(R.id.chart);

@@ -50,7 +50,7 @@ public class MyIntro extends AppIntro {
         setSwipeLock(true);
 
         if (Build.VERSION.SDK_INT >= 33) {
-            String[] permissions = {Manifest.permission.READ_PHONE_STATE};
+            String[] permissions = {Manifest.permission.READ_PHONE_STATE,Manifest.permission.POST_NOTIFICATIONS};
             Permissions.check(MyIntro.this/*context*/, permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
                 @Override
                 public void onGranted() {
