@@ -412,7 +412,7 @@ public class ReminderScreen extends Fragment {
                 pendingIntent = PendingIntent.getBroadcast(getActivity(), requestData, intent, PendingIntent.FLAG_MUTABLE);
                 alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
             } else {
-                pendingIntent= PendingIntent.getBroadcast(getActivity(), requestData, intent, PendingIntent.FLAG_IMMUTABLE);
+                pendingIntent= PendingIntent.getBroadcast(getActivity(), requestData, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                 alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent);
             }
 
@@ -424,18 +424,6 @@ public class ReminderScreen extends Fragment {
         }
     }
 
-    private void cancelAlarm() {
-        AlarmManager alarmManager = (AlarmManager) getContext().getSystemService(Context.ALARM_SERVICE);
-        Intent intent = new Intent(getContext(), AlertReceiver.class);
-        PendingIntent pendingIntent;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            pendingIntent = PendingIntent.getBroadcast(getActivity(), 1, intent, PendingIntent.FLAG_MUTABLE);
-        } else {
-            pendingIntent = PendingIntent.getBroadcast(getActivity(), 1, intent, PendingIntent.FLAG_MUTABLE);
-        }
-        alarmManager.cancel(pendingIntent);
-        Toast.makeText(getContext(), "Reminder Canceled", Toast.LENGTH_SHORT).show();
-    }
 
 
     public void removeReminder(long id) {

@@ -66,9 +66,8 @@ public class MotivatorFragment extends BaseFragment {
         btn_add_reminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 if (Build.VERSION.SDK_INT >= 33) {
-                    String[] permissions = {Manifest.permission.SCHEDULE_EXACT_ALARM};
+                    String[] permissions = {Manifest.permission.SCHEDULE_EXACT_ALARM,Manifest.permission.USE_EXACT_ALARM};
                     Permissions.check(getActivity(), permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
                         @Override
                         public void onGranted() {

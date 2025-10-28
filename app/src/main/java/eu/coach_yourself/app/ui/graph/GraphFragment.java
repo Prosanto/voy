@@ -2,6 +2,8 @@ package eu.coach_yourself.app.ui.graph;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -76,7 +78,13 @@ public class GraphFragment extends Fragment {
 //        draw_02 = (ImageView) root.findViewById(R.id.draw_02);
 //
 
+        new Handler(Looper.getMainLooper()).postDelayed(() -> initAdapter(), 200);
 
+
+        //dataAdapter2.notifyDataSetChanged();
+
+
+        spinerArray.clear();
         getGroupby.clear();
         getGroupby.addAll(DatabaseQueryHelper.getGroupby());
         for (RatingCategorySongs mRatingCategorySongs : getGroupby) {
@@ -86,6 +94,7 @@ public class GraphFragment extends Fragment {
         dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin_category.setAdapter(dataAdapter2);
 
+
         spin_category.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -93,15 +102,6 @@ public class GraphFragment extends Fragment {
                 return false;
             }
         });
-        spin_time.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                flagMonth = true;
-                return false;
-            }
-        });
-
-
         spin_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -113,10 +113,20 @@ public class GraphFragment extends Fragment {
                 if (selectedText != null) {
                     selectedText.setTextColor(Color.parseColor("#0084ff"));
                 }
+                Log.e("LineChart","TextView");
+
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        spin_time.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                flagMonth = true;
+                return false;
             }
         });
         spin_time.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -127,6 +137,7 @@ public class GraphFragment extends Fragment {
                     showChatLine();
                     flagMonth = false;
                 }
+
                 TextView selectedText = (TextView) view;
                 if (selectedText != null) {
                     selectedText.setTextColor(Color.parseColor("#0084ff"));
@@ -139,7 +150,10 @@ public class GraphFragment extends Fragment {
             }
         });
         spin_time.setSelection((Integer.parseInt(nune) - 1));
+        spin_category.setSelection(0);
 
+
+        Log.e("LineChart","LineChart");
 
         chart = (LineChart) root.findViewById(R.id.chart);
         chart.getDescription().setEnabled(true);
@@ -171,6 +185,52 @@ public class GraphFragment extends Fragment {
         showChatLine();
         piechart();
         return root;
+    }
+    void initAdapter() {
+        spinerArray.clear();
+        getGroupby.clear();
+        getGroupby.addAll(DatabaseQueryHelper.getGroupby());
+        for (RatingCategorySongs mRatingCategorySongs : getGroupby) {
+            spinerArray.add(mRatingCategorySongs.getCategoryname());
+        }
+        ArrayAdapter<String> dataAdapter2 = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, spinerArray);
+        dataAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin_category.setAdapter(dataAdapter2);
+
+
+        spin_category.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                flagCategory = true;
+                return false;
+            }
+        });
+        spin_category.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if (flagCategory) {
+                    showChatLine();
+                    flagCategory = false;
+                }
+                TextView selectedText = (TextView) view;
+                if (selectedText != null) {
+                    selectedText.setTextColor(Color.parseColor("#0084ff"));
+                }
+                Log.e("LineChart","TextView");
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
     }
 
     public void showChatLine() {
