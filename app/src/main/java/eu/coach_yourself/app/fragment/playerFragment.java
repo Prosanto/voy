@@ -227,7 +227,7 @@ public class playerFragment extends BaseFragment {
             public void onClick(View v) {
 
                 if (Build.VERSION.SDK_INT >= 33) {
-                    String[] permissions = {Manifest.permission.READ_MEDIA_IMAGES, Manifest.permission.READ_MEDIA_AUDIO};
+                    String[] permissions = { Manifest.permission.READ_MEDIA_AUDIO};
                     Permissions.check(getActivity(), permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
                         @Override
                         public void onGranted() {

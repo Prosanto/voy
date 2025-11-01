@@ -16,12 +16,10 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-
-import com.anjlab.android.iab.v3.BillingProcessor;
-import com.anjlab.android.iab.v3.PurchaseInfo;
-
 import eu.coach_yourself.app.MainActivity;
 import eu.coach_yourself.app.R;
+import eu.coach_yourself.app.iab.BillingProcessor;
+import eu.coach_yourself.app.iab.PurchaseInfo;
 import eu.coach_yourself.app.myapplication.Myapplication;
 import eu.coach_yourself.app.utils.LocaleHelper;
 import eu.coach_yourself.app.utils.PersistentUser;

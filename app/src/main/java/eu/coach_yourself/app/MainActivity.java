@@ -22,9 +22,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.anjlab.android.iab.v3.BillingProcessor;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView navView;
     public boolean homeToolTips = false;
     private static final String LOG_TAG = "iabv3";
-    private BillingProcessor bp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
