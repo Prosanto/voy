@@ -889,10 +889,10 @@ public class playerFragment extends BaseFragment {
     }
 
     public void Tooltip(int postion) {
-        String MusicDropdown = getResources().getString(R.string.MusicDropdown);
-        String AudioDropdown = getResources().getString(R.string.AudioDropdown);
-        String bottomslider = getResources().getString(R.string.bottomslider);
-        String downLoadButton = getResources().getString(R.string.downloadtext);
+        String MusicDropdown = getActivity().getResources().getString(R.string.MusicDropdown);
+        String AudioDropdown = getActivity().getResources().getString(R.string.AudioDropdown);
+        String bottomslider = getActivity().getResources().getString(R.string.bottomslider);
+        String downLoadButton = getActivity().getResources().getString(R.string.downloadtext);
 
         String iButton = getResources().getString(R.string.iButton);
         if (postion == 1) {
