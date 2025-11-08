@@ -1,14 +1,21 @@
 package eu.coach_yourself.app.fragment;
 
+import static androidx.core.content.ContextCompat.getSystemService;
+
+import static com.google.common.reflect.Reflection.getPackageName;
+
 import android.Manifest;
+import android.app.AlarmManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +28,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
 
@@ -66,19 +74,21 @@ public class MotivatorFragment extends BaseFragment {
         btn_add_reminder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= 33) {
-                    String[] permissions = {Manifest.permission.SCHEDULE_EXACT_ALARM,Manifest.permission.USE_EXACT_ALARM};
-                    Permissions.check(getActivity(), permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
-                        @Override
-                        public void onGranted() {
-                            Fragment fragment = new ReminderScreen();
-                            FragmentManager fragmentManager = getChildFragmentManager();
-                            fragmentManager.beginTransaction().add(R.id.Motivator_fragment, fragment)
-                                    .addToBackStack("my_fragment_remnder")
-                                    .commit();
-                        }
-                    });
 
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    AlarmManager alarmManager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
+                    if (!alarmManager.canScheduleExactAlarms()) {
+                        Intent intent = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+                        Uri uri = Uri.fromParts("package", getActivity().getPackageName(), null);
+                        intent.setData(uri);
+                        startActivity(intent); // Or use ActivityResultLauncher for better handling
+                    } else {
+                        Fragment fragment = new ReminderScreen();
+                        FragmentManager fragmentManager = getChildFragmentManager();
+                        fragmentManager.beginTransaction().add(R.id.Motivator_fragment, fragment)
+                                .addToBackStack("my_fragment_remnder")
+                                .commit();
+                    }
                 } else {
                     Fragment fragment = new ReminderScreen();
                     FragmentManager fragmentManager = getChildFragmentManager();
@@ -86,23 +96,24 @@ public class MotivatorFragment extends BaseFragment {
                             .addToBackStack("my_fragment_remnder")
                             .commit();
                 }
+
 //
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-//                    Dexter.withContext(getActivity())
-//                            .withPermissions(Manifest.permission.SCHEDULE_EXACT_ALARM
-//                            ).withListener(new MultiplePermissionsListener() {
-//                                @Override
-//                                public void onPermissionsChecked(MultiplePermissionsReport report) {
-//                                    Fragment fragment = new ReminderScreen();
-//                                    FragmentManager fragmentManager = getChildFragmentManager();
-//                                    fragmentManager.beginTransaction().add(R.id.Motivator_fragment, fragment)
-//                                            .addToBackStack("my_fragment_remnder")
-//                                            .commit();
-//                                }
-//
-//                                @Override
-//                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {/* ... */}
-//                            }).check();
+//                if (Build.VERSION.SDK_INT >= 33) {
+//                    String[] permissions = {Manifest.permission.SCHEDULE_EXACT_ALARM};
+//                    Permissions.check(getActivity(), permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
+//                        @Override
+//                        public void onGranted() {
+////                            Intent intent = new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM);
+////                            Uri uri = Uri.fromParts("package", getActivity().getPackageName(), null);
+////                            intent.setData(uri);
+////                            startActivity(intent);
+//                            Fragment fragment = new ReminderScreen();
+//                            FragmentManager fragmentManager = getChildFragmentManager();
+//                            fragmentManager.beginTransaction().add(R.id.Motivator_fragment, fragment)
+//                                    .addToBackStack("my_fragment_remnder")
+//                                    .commit();
+//                        }
+//                    });
 //
 //                } else {
 //                    Fragment fragment = new ReminderScreen();
