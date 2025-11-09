@@ -154,27 +154,37 @@ public class PersistentUser {
                 Context.MODE_PRIVATE);
         return prefs.getBoolean("LOGIN", false);
     }
-
-    public static boolean isDashBoardToolsTips(Context c) {
-        final SharedPreferences prefs = c.getSharedPreferences(PREFS_FILE_NAME,
-                Context.MODE_PRIVATE);
-        return prefs.getBoolean("DashBoardToolsTips", true);
-    }
-    public static void setDashBoardToolsTips(Context c,boolean flag) {
-        final SharedPreferences prefs = c.getSharedPreferences(PREFS_FILE_NAME,
-                Context.MODE_PRIVATE);
-        prefs.edit().putBoolean("DashBoardToolsTips", flag).commit();
-    }
-    public static boolean isPlayerpageToolsTips(Context c) {
-        final SharedPreferences prefs = c.getSharedPreferences(PREFS_FILE_NAME,
-                Context.MODE_PRIVATE);
-        return prefs.getBoolean("Playerpage", true);
-    }
-    public static void setPlayerpageToolsTips(Context c,boolean flag) {
-        final SharedPreferences prefs = c.getSharedPreferences(PREFS_FILE_NAME,
-                Context.MODE_PRIVATE);
-        prefs.edit().putBoolean("Playerpage", flag).commit();
-    }
+//
+//    public static boolean isDashBoardToolsTips(Context c) {
+//        final SharedPreferences prefs = c.getSharedPreferences(PREFS_FILE_NAME,
+//                Context.MODE_PRIVATE);
+//        return prefs.getBoolean("DashBoardToolsTips", true);
+//    }
+//    public static void setDashBoardToolsTips(Context c,boolean flag) {
+//        final SharedPreferences prefs = c.getSharedPreferences(PREFS_FILE_NAME,
+//                Context.MODE_PRIVATE);
+//        prefs.edit().putBoolean("DashBoardToolsTips", flag).commit();
+//    }
+//    public static boolean isPlayerpageToolsTips(Context c) {
+//        final SharedPreferences prefs = c.getSharedPreferences(PREFS_FILE_NAME,
+//                Context.MODE_PRIVATE);
+//        return prefs.getBoolean("Playerpage", true);
+//    }
+//    public static void setPlayerpageToolsTips(Context c,boolean flag) {
+//        final SharedPreferences prefs = c.getSharedPreferences(PREFS_FILE_NAME,
+//                Context.MODE_PRIVATE);
+//        prefs.edit().putBoolean("Playerpage", flag).commit();
+//    }
+//    public static boolean isHomepagesToolsTips(Context c) {
+//        final SharedPreferences prefs = c.getSharedPreferences(PREFS_FILE_NAME,
+//                Context.MODE_PRIVATE);
+//        return prefs.getBoolean("Homepage", true);
+//    }
+//    public static void setHomeToolsTips(Context c,boolean flag) {
+//        final SharedPreferences prefs = c.getSharedPreferences(PREFS_FILE_NAME,
+//                Context.MODE_PRIVATE);
+//        prefs.edit().putBoolean("Homepage", flag).commit();
+//    }
 
     public static void setLanguage(Context c, boolean flag) {
         final SharedPreferences prefs = c.getSharedPreferences(PREFS_FILE_NAME,

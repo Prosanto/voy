@@ -312,9 +312,10 @@ public class HomeFragment extends Fragment {
             mCardArrayAdapter = new CardArrayAdapter(getActivity(), R.id.txt_categorytitle, R.layout.home_cards, arrayList, mainActivity.isDevieSmall());
             mCardStack.setAdapter(mCardArrayAdapter);
             mCardStack.reset(true);
-            boolean IsShowTipsHome = PersistentUser.isDashBoardToolsTips(getActivity());
-            if (prefManager.IsShowTips() && IsShowTipsHome) {
+            boolean IsShowTipsHome = prefManager.IsAlreadyHomepageTips();
+            if (prefManager.IsShowTips() && !IsShowTipsHome) {
                 mainActivity.Tooltip(mCardStack, 1);
+                prefManager.setAlreadyHomepageTips(true);
             }
         } catch (Exception ex) {
 

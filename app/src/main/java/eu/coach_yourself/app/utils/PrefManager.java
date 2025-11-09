@@ -10,6 +10,8 @@ public class PrefManager {
     private static final String FIRST_LAUNCH = "firstLaunch";
     private static final String SHOW_RATTING = "show_ratting";
     private static final String SHOW_TIPS = "show_tips";
+    private static final String SHOW_TIPS_ALLREADY_HOME_PAGE = "show_tips_home";
+    private static final String SHOW_TIPS_ALLREADY_PLAYER_PAGE = "show_tips_player";
 
     int MODE = 0;
     private static final String PREFERENCE = "Java";
@@ -42,5 +44,22 @@ public class PrefManager {
     public boolean IsShowTips() {
         return sharedPreferences.getBoolean(SHOW_TIPS, true);
     }
+
+    public void setAlreadyHomepageTips(boolean isFirstTime) {
+        spEditor.putBoolean(SHOW_TIPS_ALLREADY_HOME_PAGE, isFirstTime);
+        spEditor.commit();
+    }
+    public boolean IsAlreadyHomepageTips() {
+        return sharedPreferences.getBoolean(SHOW_TIPS_ALLREADY_HOME_PAGE, true);
+    }
+
+    public void setAlreadyPlayerpageTips(boolean isFirstTime) {
+        spEditor.putBoolean(SHOW_TIPS_ALLREADY_PLAYER_PAGE, isFirstTime);
+        spEditor.commit();
+    }
+    public boolean IsAlreadyPlayerpageTips() {
+        return sharedPreferences.getBoolean(SHOW_TIPS_ALLREADY_PLAYER_PAGE, true);
+    }
+
 
 }

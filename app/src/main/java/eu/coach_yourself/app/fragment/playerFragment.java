@@ -227,7 +227,7 @@ public class playerFragment extends BaseFragment {
             public void onClick(View v) {
 
                 if (Build.VERSION.SDK_INT >= 33) {
-                    String[] permissions = { Manifest.permission.READ_MEDIA_AUDIO};
+                    String[] permissions = {Manifest.permission.READ_MEDIA_AUDIO};
                     Permissions.check(getActivity(), permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
                         @Override
                         public void onGranted() {
@@ -238,7 +238,7 @@ public class playerFragment extends BaseFragment {
 
                 } else {
 
-                    String[] permissions = { Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
+                    String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
                     Permissions.check(getActivity()/*context*/, permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
                         @Override
                         public void onGranted() {
@@ -247,7 +247,7 @@ public class playerFragment extends BaseFragment {
                     });
                 }
 
-               // ValidationPermsion();
+                // ValidationPermsion();
 
             }
         });
@@ -785,13 +785,11 @@ public class playerFragment extends BaseFragment {
                 }
             }
             checkFavourite();
-            if (prefManager.IsShowTips()) {
+            boolean IsShowTipsHome = prefManager.IsAlreadyPlayerpageTips();
+
+            if (prefManager.IsShowTips() && !IsShowTipsHome) {
+                prefManager.setAlreadyPlayerpageTips(true);
                 Tooltip(1);
-            } else {
-                boolean IsShowTipsHome = PersistentUser.isPlayerpageToolsTips(getActivity());
-                if (IsShowTipsHome) {
-                    Tooltip(1);
-                }
             }
             downloadVideoCheck();
         } catch (Exception ex) {
@@ -804,7 +802,7 @@ public class playerFragment extends BaseFragment {
         @Override
         public void onReceive(Context context, Intent intent) {
             boolean completeSongs = intent.getBooleanExtra("completeSongs", false);
-            Log.e("completeSongs","are"+completeSongs);
+            Log.e("completeSongs", "are" + completeSongs);
             if (!completeSongs) {
                 Playlist m = MyMediaPlayerService.commonPlaylistcontent;
                 if (m.getCategory_id().equalsIgnoreCase(mModelFile.getId())) {
@@ -1012,7 +1010,8 @@ public class playerFragment extends BaseFragment {
                     .onDismissListener(new SimpleTooltip.OnDismissListener() {
                         @Override
                         public void onDismiss(SimpleTooltip tooltip) {
-                            PersistentUser.setPlayerpageToolsTips(getActivity(), false);
+                            prefManager.setAlreadyPlayerpageTips(true);
+                            //PersistentUser.setPlayerpageToolsTips(getActivity(), false);
                         }
                     })
                     .onShowListener(new SimpleTooltip.OnShowListener() {

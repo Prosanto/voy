@@ -132,13 +132,15 @@
                         android:textColor="@color/white"
                         android:textSize="18dp" />
 
+
+
                     <Switch
                         android:id="@+id/seitch_rating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:gravity="end"
-                        tools:ignore="UseSwitchCompatOrMaterialXml" />
+                        android:theme="@style/SwitchStyle"
+                        android:gravity="end"/>
                 </LinearLayout>
 
                 <View
@@ -227,12 +229,14 @@
                         android:textColor="@color/white"
                         android:textSize="18dp" />
 
+
                     <Switch
                         android:id="@+id/switch_tips"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="end"
+                        android:theme="@style/SwitchStyle"
                         tools:ignore="UseSwitchCompatOrMaterialXml" />
                 </LinearLayout>
 
@@ -248,13 +252,13 @@
                     android:id="@+id/btn_website"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/transbutton_bg"
                     android:drawableEnd="@drawable/ic_baseline_arrow_forward_ios_24"
                     android:fontFamily="@font/rubik_regular"
                     android:gravity="left"
                     android:text="@string/Website"
+                    android:textColor="@color/white"
                     android:textAllCaps="false"
                     android:textSize="17dp" />
 
@@ -270,13 +274,13 @@
                     android:id="@+id/btn_policy"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/transbutton_bg"
                     android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
                     android:fontFamily="@font/rubik_regular"
                     android:gravity="left"
                     android:text="@string/Policy"
+                    android:textColor="@color/white"
                     android:textAllCaps="false"
                     android:textSize="17dp" />
 
@@ -292,12 +296,12 @@
                     android:id="@+id/btn_term"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginLeft="10dp"
                     android:layout_marginRight="5dp"
                     android:background="@drawable/transbutton_bg"
                     android:drawableRight="@drawable/ic_baseline_arrow_forward_ios_24"
                     android:fontFamily="@font/rubik_regular"
                     android:gravity="left"
+                    android:textColor="@color/white"
                     android:text="@string/Term"
                     android:textAllCaps="false"
                     android:textSize="17dp" />

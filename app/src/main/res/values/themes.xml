@@ -51,7 +51,12 @@
     <style name="CustomTimePickerStyle" parent="ThemeOverlay.MaterialComponents.TimePicker">
         <item name="android:textColorAlertDialogListItem">@color/white</item>
         <item name="android:textColorPrimary">@color/white</item>
+    </style>
 
+    <style name="SwitchStyle" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/Green</item>
+        <item name="colorSwitchThumbNormal">@color/lightgray2</item>
+        <item name="android:colorForeground">@color/lightgray2</item>
     </style>
 
 

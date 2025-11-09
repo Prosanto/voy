@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -57,11 +58,11 @@ public class SettingsFragment extends Fragment {
         btn_term.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                String urlServer="https://voy-app.com/agb/";
+                String urlServer = "https://voy-app.com/agb/";
                 if (PersistentUser.isLanguage(getActivity())) {
-                    urlServer="https://voy-app.com/agb/";
+                    urlServer = "https://voy-app.com/agb/";
                 } else {
-                    urlServer="https://voy-app.com/agb/";
+                    urlServer = "https://voy-app.com/agb/";
                 }
 
                 Intent i = new Intent();
@@ -74,11 +75,11 @@ public class SettingsFragment extends Fragment {
         btn_policy.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                String urlServer="https://voy-app.com/datenschutzerklarung/";
+                String urlServer = "https://voy-app.com/datenschutzerklarung/";
                 if (PersistentUser.isLanguage(getActivity())) {
-                    urlServer="https://voy-app.com/datenschutzerklarung/";
+                    urlServer = "https://voy-app.com/datenschutzerklarung/";
                 } else {
-                    urlServer="https://voy-app.com/datenschutzerklarung/";
+                    urlServer = "https://voy-app.com/datenschutzerklarung/";
                 }
                 Intent i = new Intent();
                 i.setAction(Intent.ACTION_VIEW);
@@ -87,6 +88,10 @@ public class SettingsFragment extends Fragment {
 
             }
         });
+
+        if(prefManager.IsAlreadyPlayerpageTips() && prefManager.IsAlreadyHomepageTips()){
+            prefManager.setShowTips(false);
+        }
 //        btn_subscribe.setOnClickListener(new OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -120,20 +125,29 @@ public class SettingsFragment extends Fragment {
         } else {
             switch_rating.setChecked(false);
         }
+        switch_tips.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                flagClickOption = true;
+                return false;
+            }
+        });
 
         switch_tips.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked) {
-                    prefManager.setShowTips(true);
-                    PersistentUser.setPlayerpageToolsTips(getActivity(), true);
-                } else {
-                    prefManager.setShowTips(false);
-                    PersistentUser.setPlayerpageToolsTips(getActivity(), false);
-
-                }
                 if (flagClickOption) {
+                    flagClickOption = false;
+                    if (isChecked) {
+                        prefManager.setShowTips(true);
+                        prefManager.setAlreadyHomepageTips(false);
+                        prefManager.setAlreadyPlayerpageTips(false);
 
+                    } else {
+                        prefManager.setShowTips(false);
+                        prefManager.setAlreadyHomepageTips(true);
+                        prefManager.setAlreadyPlayerpageTips(true);
+                    }
                 }
             }
         });

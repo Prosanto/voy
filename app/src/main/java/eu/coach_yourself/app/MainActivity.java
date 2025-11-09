@@ -159,8 +159,8 @@ public class MainActivity extends AppCompatActivity {
                                 View view = findViewById(id);
                                 Tooltip(view, 3);
                             } else if (postion == 3) {
-                                prefManager.setShowTips(false);
-                                PersistentUser.setDashBoardToolsTips(mContext, false);
+                                prefManager.setAlreadyHomepageTips(true);
+                                //PersistentUser.setDashBoardToolsTips(mContext, false);
                                 homeToolTips = false;
 
                             }

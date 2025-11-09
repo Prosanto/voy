@@ -9,6 +9,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
 import com.github.appintro.AppIntro;
 import com.github.appintro.AppIntroPageTransformerType;
 import com.nabinbhandari.android.permissions.PermissionHandler;
@@ -40,7 +41,7 @@ public class MyIntro extends AppIntro {
             LocaleHelper.setLocale(mContext, "de");
         }
 
-        PersistentUser.setDashBoardToolsTips(mContext, true);
+       // PersistentUser.setDashBoardToolsTips(mContext, true);
         addSlide(new slide_1());
         addSlide(new slide_2());
         addSlide(new slide_3());
@@ -50,7 +51,7 @@ public class MyIntro extends AppIntro {
         setSwipeLock(true);
 
         if (Build.VERSION.SDK_INT >= 33) {
-            String[] permissions = {Manifest.permission.READ_PHONE_STATE,Manifest.permission.POST_NOTIFICATIONS};
+            String[] permissions = {Manifest.permission.READ_PHONE_STATE, Manifest.permission.POST_NOTIFICATIONS};
             Permissions.check(MyIntro.this/*context*/, permissions, null/*rationale*/, null/*options*/, new PermissionHandler() {
                 @Override
                 public void onGranted() {
@@ -78,7 +79,6 @@ public class MyIntro extends AppIntro {
         }
 
 
-
 //        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
 //            Dexter.withContext(this)
 //                    .withPermissions(Manifest.permission.READ_PHONE_STATE
@@ -102,11 +102,28 @@ public class MyIntro extends AppIntro {
 //                finish();
 //            }
 
-        }
+    }
 
 
     public void launchMain() {
-        prefManager.setFirstTimeLaunch(false);
+        if (prefManager.FirstLaunch()){
+
+            prefManager.setFirstTimeLaunch(false);
+            prefManager.setShowTips(true);
+            prefManager.setAlreadyPlayerpageTips(false);
+            prefManager.setAlreadyHomepageTips(false);
+
+        } else {
+
+//            if (prefManager.IsShowTips()) {
+//
+//
+//            } else {
+//                PersistentUser.setPlayerpageToolsTips(mContext, false);
+//                PersistentUser.setHomeToolsTips(mContext, false);
+//            }
+        }
+
         startActivity(new Intent(MyIntro.this, MainActivity.class));
         finish();
     }
