@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     .anchorView(view)
                     .text(tool_tips_card)
                     .gravity(Gravity.BOTTOM)
-                    .transparentOverlay(false)
+                    .transparentOverlay(true)
                     .overlayWindowBackgroundColor(Color.BLACK)
                     .backgroundColor(Color.WHITE)
                     .animationPadding(SimpleTooltipUtils.pxFromDp(50))

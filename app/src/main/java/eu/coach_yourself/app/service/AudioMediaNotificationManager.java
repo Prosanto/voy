@@ -68,8 +68,11 @@ public class AudioMediaNotificationManager {
 
 
         Intent intent = new Intent(service, MainActivity.class);
-        intent.setAction(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+       // intent.setAction(Intent.ACTION_MAIN);
+        //intent.addCategory(Intent.CATEGORY_LAUNCHER);
+       // playbackAction.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+       // playbackAction.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
 //        PendingIntent pendingIntent = PendingIntent.getActivity(service, 0, intent, 0);
         PendingIntent pendingIntent = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {

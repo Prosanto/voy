@@ -251,6 +251,8 @@ public class ReminderScreen extends Fragment {
                     hr = String.valueOf(cal.get(Calendar.HOUR_OF_DAY));
                     minut = String.valueOf(cal.get(Calendar.MINUTE));
                     title = String.valueOf(edit_remind.getText());
+
+                    //String curTime = String.format("%02d",minut);
                     time = String.valueOf(cal.get(Calendar.HOUR) + " : " + String.valueOf(cal.get(Calendar.MINUTE) + " "));
                     dbHelper.updateremind(id, title, days, time, hr, minut);
                     removeReminder(Long.parseLong(id));

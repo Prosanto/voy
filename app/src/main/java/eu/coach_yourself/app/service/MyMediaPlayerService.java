@@ -16,6 +16,7 @@ import android.os.IBinder;
 import android.support.v4.media.MediaMetadataCompat;
 import android.support.v4.media.session.MediaControllerCompat;
 import android.support.v4.media.session.MediaSessionCompat;
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -109,6 +110,15 @@ public class MyMediaPlayerService extends Service {
                 .putString(MediaMetadataCompat.METADATA_KEY_ALBUM, strAppName)
                 .putString(MediaMetadataCompat.METADATA_KEY_TITLE, strLiveBroadcast)
                 .build());
+
+        PlaybackStateCompat.Builder stateBuilder = new PlaybackStateCompat.Builder()
+                .setActions(
+                        PlaybackStateCompat.ACTION_PLAY |
+                                PlaybackStateCompat.ACTION_PAUSE |
+                                PlaybackStateCompat.ACTION_SKIP_TO_PREVIOUS |
+                                PlaybackStateCompat.ACTION_SKIP_TO_NEXT |
+                                PlaybackStateCompat.ACTION_PLAY_PAUSE);
+        mediaSession.setPlaybackState(stateBuilder.build());
         mediaSession.setCallback(mediasSessionCallback);
 
         wifiLock = ((WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE))

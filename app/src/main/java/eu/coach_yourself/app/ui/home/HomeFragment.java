@@ -5,6 +5,8 @@ import android.app.ProgressDialog;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -312,11 +314,19 @@ public class HomeFragment extends Fragment {
             mCardArrayAdapter = new CardArrayAdapter(getActivity(), R.id.txt_categorytitle, R.layout.home_cards, arrayList, mainActivity.isDevieSmall());
             mCardStack.setAdapter(mCardArrayAdapter);
             mCardStack.reset(true);
-            boolean IsShowTipsHome = prefManager.IsAlreadyHomepageTips();
-            if (prefManager.IsShowTips() && !IsShowTipsHome) {
-                mainActivity.Tooltip(mCardStack, 1);
-                prefManager.setAlreadyHomepageTips(true);
-            }
+
+            Handler handler = new Handler(Looper.getMainLooper());
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    boolean IsShowTipsHome = prefManager.IsAlreadyHomepageTips();
+                    if (prefManager.IsShowTips() && !IsShowTipsHome) {
+                        mainActivity.Tooltip(mCardStack, 1);
+                        prefManager.setAlreadyHomepageTips(true);
+                    }
+                }
+            }, 500);
+
         } catch (Exception ex) {
 
         }

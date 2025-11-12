@@ -108,6 +108,8 @@ public class playerFragment extends BaseFragment {
     private PrefManager prefManager;
     private ImageView btn_play;
     private ImageView btn_download_delete;
+    public boolean isToolTipsDsilay = false;
+    private int showingTooltipsPosition = 0;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -164,13 +166,25 @@ public class playerFragment extends BaseFragment {
         btn_detail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                Fragment fragment = new description_fragment();
-                fragment.setArguments(bundle);
-                FragmentManager fragmentManager = getChildFragmentManager();
-                fragmentManager.beginTransaction().add(R.id.fragment_player, fragment)
-                        .addToBackStack("my_fragment")
-                        .commit();
+                if (isToolTipsDsilay && 4 >= showingTooltipsPosition) {
+                    if (mSimpleTooltip != null && mSimpleTooltip.isShowing()) {
+                        mSimpleTooltip.dismiss();
+                    }
+                    //Tooltip(showingTooltipsPosition + 1);
+                } else {
+                    if (mSimpleTooltip != null && mSimpleTooltip.isShowing()) {
+                        mSimpleTooltip.dismiss();
+                    }
+
+                    Bundle bundle = new Bundle();
+                    Fragment fragment = new description_fragment();
+                    fragment.setArguments(bundle);
+                    FragmentManager fragmentManager = getChildFragmentManager();
+                    fragmentManager.beginTransaction().add(R.id.fragment_player, fragment)
+                            .addToBackStack("my_fragment")
+                            .commit();
+                }
+
             }
         });
         btn_share = (ImageButton) view.findViewById(R.id.btn_share);
@@ -886,15 +900,17 @@ public class playerFragment extends BaseFragment {
         mFavouriteSongs.save();
     }
 
+    SimpleTooltip mSimpleTooltip;
+
     public void Tooltip(int postion) {
         String MusicDropdown = getActivity().getResources().getString(R.string.MusicDropdown);
         String AudioDropdown = getActivity().getResources().getString(R.string.AudioDropdown);
         String bottomslider = getActivity().getResources().getString(R.string.bottomslider);
         String downLoadButton = getActivity().getResources().getString(R.string.downloadtext);
-
+        showingTooltipsPosition = postion;
         String iButton = getResources().getString(R.string.iButton);
         if (postion == 1) {
-            new SimpleTooltip.Builder(getActivity())
+            mSimpleTooltip = new SimpleTooltip.Builder(getActivity())
                     .anchorView(spin_time)
                     .text(MusicDropdown)
                     .gravity(Gravity.BOTTOM)
@@ -908,6 +924,7 @@ public class playerFragment extends BaseFragment {
                     .onDismissListener(new SimpleTooltip.OnDismissListener() {
                         @Override
                         public void onDismiss(SimpleTooltip tooltip) {
+                            isToolTipsDsilay = false;
                             Tooltip(2);
                         }
                     })
@@ -916,11 +933,13 @@ public class playerFragment extends BaseFragment {
                         public void onShow(SimpleTooltip tooltip) {
                         }
                     })
-                    .build()
-                    .show();
+                    .build();
+
+            mSimpleTooltip.show();
+            isToolTipsDsilay = true;
 
         } else if (postion == 2) {
-            new SimpleTooltip.Builder(getActivity())
+            mSimpleTooltip = new SimpleTooltip.Builder(getActivity())
                     .anchorView(spin_style)
                     .text(AudioDropdown)
                     .gravity(Gravity.BOTTOM)
@@ -934,6 +953,7 @@ public class playerFragment extends BaseFragment {
                     .onDismissListener(new SimpleTooltip.OnDismissListener() {
                         @Override
                         public void onDismiss(SimpleTooltip tooltip) {
+                            isToolTipsDsilay = false;
                             Tooltip(3);
                         }
                     })
@@ -942,10 +962,12 @@ public class playerFragment extends BaseFragment {
                         public void onShow(SimpleTooltip tooltip) {
                         }
                     })
-                    .build()
-                    .show();
+                    .build();
+            mSimpleTooltip.show();
+            isToolTipsDsilay = true;
+
         } else if (postion == 3) {
-            new SimpleTooltip.Builder(getActivity())
+            mSimpleTooltip = new SimpleTooltip.Builder(getActivity())
                     .anchorView(seekBar2)
                     .text(bottomslider)
                     .gravity(Gravity.BOTTOM)
@@ -959,6 +981,7 @@ public class playerFragment extends BaseFragment {
                     .onDismissListener(new SimpleTooltip.OnDismissListener() {
                         @Override
                         public void onDismiss(SimpleTooltip tooltip) {
+                            isToolTipsDsilay = false;
                             Tooltip(4);
                         }
                     })
@@ -967,10 +990,11 @@ public class playerFragment extends BaseFragment {
                         public void onShow(SimpleTooltip tooltip) {
                         }
                     })
-                    .build()
-                    .show();
+                    .build();
+            mSimpleTooltip.show();
+            isToolTipsDsilay = true;
         } else if (postion == 4) {
-            new SimpleTooltip.Builder(getActivity())
+            mSimpleTooltip = new SimpleTooltip.Builder(getActivity())
                     .anchorView(btn_download_delete)
                     .text(downLoadButton)
                     .gravity(Gravity.BOTTOM)
@@ -984,6 +1008,7 @@ public class playerFragment extends BaseFragment {
                     .onDismissListener(new SimpleTooltip.OnDismissListener() {
                         @Override
                         public void onDismiss(SimpleTooltip tooltip) {
+                            isToolTipsDsilay = false;
                             Tooltip(5);
                             // PersistentUser.setPlayerpageToolsTips(getActivity(), false);
                         }
@@ -993,10 +1018,11 @@ public class playerFragment extends BaseFragment {
                         public void onShow(SimpleTooltip tooltip) {
                         }
                     })
-                    .build()
-                    .show();
+                    .build();
+            mSimpleTooltip.show();
+            isToolTipsDsilay = true;
         } else if (postion == 5) {
-            new SimpleTooltip.Builder(getActivity())
+            mSimpleTooltip = new SimpleTooltip.Builder(getActivity())
                     .anchorView(btn_detail)
                     .text(iButton)
                     .gravity(Gravity.BOTTOM)
@@ -1010,6 +1036,8 @@ public class playerFragment extends BaseFragment {
                     .onDismissListener(new SimpleTooltip.OnDismissListener() {
                         @Override
                         public void onDismiss(SimpleTooltip tooltip) {
+                            Tooltip(6);
+                            isToolTipsDsilay = false;
                             prefManager.setAlreadyPlayerpageTips(true);
                             //PersistentUser.setPlayerpageToolsTips(getActivity(), false);
                         }
@@ -1019,8 +1047,11 @@ public class playerFragment extends BaseFragment {
                         public void onShow(SimpleTooltip tooltip) {
                         }
                     })
-                    .build()
-                    .show();
+                    .build();
+            mSimpleTooltip.show();
+            // isToolTipsDsilay=true;
+        } else {
+            isToolTipsDsilay = false;
         }
     }
 

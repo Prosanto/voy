@@ -83,11 +83,17 @@ public class AdapterRemind extends RecyclerView.Adapter<AdapterRemind.ViewHolder
 //        String date = df.format(cal.getTime());
 //        holder.txt_alarm_time.setText(date);
 
-        String value = list.get(position).getRemind_hr().trim() + ":" + list.get(position).getRemind_minut().trim() ;
-        Log.e("value", value);
+       // String value = list.get(position).getRemind_hr().trim() + ":" + list.get(position).getRemind_minut().trim() ;
+        String valueHrs= list.get(position).getRemind_hr().trim();
+        String valueminutes= list.get(position).getRemind_minut().trim();
+        int hours= Integer.parseInt(list.get(position).getRemind_hr());
+        int minutes= Integer.parseInt(list.get(position).getRemind_minut());
+        if(9>=minutes){
+            valueminutes="0"+valueminutes;
+        }
+       // Log.e("value", value);
         //value = DateUtility.getCovention(value);
-        holder.txt_alarm_time.setText(value);
-
+        holder.txt_alarm_time.setText(valueHrs+":"+valueminutes);
         holder.txt_alarm_days.setText(textofDay);
 //        holder.txt_alarm_time.setText(list.get(position).getRemind_time());
         holder.txt_alarm_title.setText(list.get(position).getRemind_title());

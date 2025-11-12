@@ -45,6 +45,13 @@ public class description_fragment extends Fragment {
 
             }
         });
+//        RelativeLayout fragment_player = (RelativeLayout) v.findViewById(R.id.fragment_detail);
+//        fragment_player.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
         Bundle bundle = this.getArguments();
         ModelFile mModelFile = Myapplication.mModelFile;
         txt_dec = (TextView) v.findViewById(R.id.txt_dec);

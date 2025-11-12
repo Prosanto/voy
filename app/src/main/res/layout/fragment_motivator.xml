@@ -60,6 +60,7 @@
                         android:paddingTop="12dp"
                         android:paddingBottom="8dp"
                         android:text="@string/addmotivator"
+                        android:textColor="@color/white"
                         android:textAllCaps="false"
                         android:textSize="18dp" />
 
